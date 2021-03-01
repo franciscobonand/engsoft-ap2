@@ -5,22 +5,22 @@ public class Customer {
    private String _name;
    private Vector _rentals = new Vector();
 
-  private double amountFor(Rental each) {
+  private double amountFor(Rental aRental) {
     double thisAmountTemp = 0;
     //determine amounts for each line
-    switch (each.getMovie().getPriceCode()) {
+    switch (aRental.getMovie().getPriceCode()) {
       case Movie.REGULAR:
         thisAmountTemp += 2;
-        if (each.getDaysRented() > 2)
-            thisAmountTemp += (each.getDaysRented() - 2) * 1.5;
+        if (aRental.getDaysRented() > 2)
+            thisAmountTemp += (aRental.getDaysRented() - 2) * 1.5;
         break;
       case Movie.NEW_RELEASE:
-        thisAmountTemp += each.getDaysRented() * 3;
+        thisAmountTemp += aRental.getDaysRented() * 3;
         break;
       case Movie.CHILDRENS:
         thisAmountTemp += 1.5;
-        if (each.getDaysRented() > 3)
-            thisAmountTemp += (each.getDaysRented() - 3) * 1.5;
+        if (aRental.getDaysRented() > 3)
+            thisAmountTemp += (aRental.getDaysRented() - 3) * 1.5;
           break;
     }
     return thisAmountTemp;

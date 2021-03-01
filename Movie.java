@@ -41,11 +41,6 @@ public class Movie {
    }
 
   public int getFrequentRenterPoints(int daysRented) {
-    switch (getPriceCode()) {
-      case Movie.NEW_RELEASE:
-        return 2;
-      default :
-        return 1;
-    }
+    return _price.getFrequentRenterPoints(daysRented);
   }
 }

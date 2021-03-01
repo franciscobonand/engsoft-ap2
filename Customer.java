@@ -5,27 +5,6 @@ public class Customer {
    private String _name;
    private Vector _rentals = new Vector();
 
-  private double amountFor(Rental aRental) {
-    double thisAmountTemp = 0;
-    //determine amounts for each line
-    switch (aRental.getMovie().getPriceCode()) {
-      case Movie.REGULAR:
-        thisAmountTemp += 2;
-        if (aRental.getDaysRented() > 2)
-            thisAmountTemp += (aRental.getDaysRented() - 2) * 1.5;
-        break;
-      case Movie.NEW_RELEASE:
-        thisAmountTemp += aRental.getDaysRented() * 3;
-        break;
-      case Movie.CHILDRENS:
-        thisAmountTemp += 1.5;
-        if (aRental.getDaysRented() > 3)
-            thisAmountTemp += (aRental.getDaysRented() - 3) * 1.5;
-          break;
-    }
-    return thisAmountTemp;
-  }
-
    public Customer (String name){
       _name = name;
    }
@@ -47,7 +26,7 @@ public class Customer {
         double thisAmount = 0;
         Rental each = (Rental) rentals.nextElement();
 
-      thisAmount = amountFor(each);
+      thisAmount = each.getCharge();
 
         // add frequent renter points
         frequentRenterPoints ++;

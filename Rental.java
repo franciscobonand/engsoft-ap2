@@ -36,4 +36,13 @@ public class Rental {
     }
     return thisAmountTemp;
   }
+
+  public int getFrequentRenterPoints() {
+    switch (getMovie().getPriceCode()) {
+      case Movie.NEW_RELEASE:
+        return 2;
+      default :
+        return 1;
+    }
+  }
 }

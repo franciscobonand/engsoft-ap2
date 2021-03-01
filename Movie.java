@@ -44,4 +44,13 @@ public class Movie {
     }
     return thisAmountTemp;
   }
+
+  public int getFrequentRenterPoints(int daysRented) {
+    switch (_priceCode) {
+      case Movie.NEW_RELEASE:
+        return 2;
+      default :
+        return 1;
+    }
+  }
 }

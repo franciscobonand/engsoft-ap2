@@ -20,12 +20,7 @@ public class Rental {
     return _movie.getCharge(_daysRented);
   }
 
-  public int getFrequentRenterPoints() {
-    switch (getMovie().getPriceCode()) {
-      case Movie.NEW_RELEASE:
-        return 2;
-      default :
-        return 1;
-    }
+  public int getFrequentRenterPoints(){
+    return _movie.getFrequentRenterPoints(_daysRented);
   }
 }
